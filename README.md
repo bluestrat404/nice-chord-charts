@@ -35,11 +35,15 @@ This will generate the HTML using ChordPro, and then generate the PDF using Chro
 
 It runs this:
 
-`chordpro We\ Three\ Kings.chordpro --generate=HTML > temp.html`
+`chordpro nameofyour.chordpro --generate=HTML > tempnicepdf.html`
 
 And then this:
 
-`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=We\ Three\ Kings\ -\ E.pdf temp.html`
+`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=nameofdesired.pdf tempnicepdf.html`
+
+And then it cleans up:
+
+`rm tempnicepdf.html`
 
 ## Bonus Tip: Transposing
 ChordPro can also generate transposed charts (e.g., for different capo positions):
@@ -59,7 +63,7 @@ Then generate the PDF using Chrome as above.
 *Currently, the function cpnicepdf() doesn't support transposing directly, but this may be added in the future. We may also add a flag to serve the use case where there will be two guitars who should be capoed in different places, and then we'd generate the two desired pdfs at once. Fancy!*
 
 ## Troubleshooting
-### The formatting isn't showing up.
+### The formatting isn't showing up. The PDF is ugly!
 Double check that whatever you have in the "print" stylesheet path in the chordpro.json config file does indeed pull up the nice-chord-charts.css when you paste it into a browser.
 
 Also be sure to use ChordPro's directives for start of verse {sov}, end of verse {eov}, start of chorus {soc}, and end of chorus {eoc}, everywhere you want a box, as this is what ChordPro uses to output the relevant divs in HTML.
