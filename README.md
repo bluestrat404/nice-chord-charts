@@ -16,20 +16,28 @@
 
 ## Setup
 
-### Mac/Linux
-1. Either copy chordpro.json to ~/.config/chordpro/, or set up an alias so your ChordPro install always uses the flag to point to the config file wherever you've saved it.
-2. Edit line 569 in your chordpro.json config to point to your nice-chord-charts.css in a Google Chrome loadable way. For example:
+### MacOS
+1. Paste the cpnicepdf() shell function into your .bashrc, .zshrc, etc.
+2. Either copy chordpro.json to ~/.config/chordpro/, or set up an alias so your ChordPro install always uses the flag to point to the config file wherever you've saved it.
+3. Edit line 569 in your chordpro.json config to point to your nice-chord-charts.css in a Google Chrome loadable way. For example:
 
 `569             "print"   : "file:///path/to/your/nice-chord-charts.css",`
 
-## How do I use this?
-In short, generate the HTML using ChordPro, and then generate the PDF using Chrome.
+### Windows/Linux
+Same as for MacOS, but you'll need to change your cpnicepdf() function to correctly point to Chrome on your system.
 
-Once you have a ChordPro file you're happy with, generate the HTML:
+## How do I use this?
+Like so:
+
+`cpnicepdf nameofyour.chordpro nameofdesired.pdf`
+
+This will generate the HTML using ChordPro, and then generate the PDF using Chrome.
+
+It runs this:
 
 `chordpro We\ Three\ Kings.chordpro --generate=HTML > temp.html`
 
-Then use Google Chrome in headless mode to generate the PDF. On MacOS, this looks like:
+And then this:
 
 `/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=We\ Three\ Kings\ -\ E.pdf temp.html`
 
@@ -47,6 +55,8 @@ To transpose We Three Kings from E to A, for a capo on 7, we could use:
 `chordpro We\ Three\ Kings.chordpro --transpose=+7 --generate=HTML > temp.html`
 
 Then generate the PDF using Chrome as above.
+
+*Currently, the function cpnicepdf() doesn't support transposing directly, but this may be added in the future. We may also add a flag to serve the use case where there will be two guitars who should be capoed in different places, and then we'd generate the two desired pdfs at once. Fancy!*
 
 ## Troubleshooting
 ### The formatting isn't showing up.
