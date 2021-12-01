@@ -31,7 +31,7 @@ Once you have a ChordPro file you're happy with, generate the HTML:
 
 Then use Google Chrome in headless mode to generate the PDF. On MacOS, this looks like:
 
-`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=WeThreeChrome.pdf temp.html`
+`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=We\ Three\ Kings\ -\ E.pdf temp.html`
 
 ## Bonus Tip: Transposing
 ChordPro can also generate transposed charts (e.g., for different capo positions):
@@ -44,7 +44,7 @@ ChordPro can also generate transposed charts (e.g., for different capo positions
 
 To transpose We Three Kings from E to A, for a capo on 7, we could use:
 
-`chordpro We\ Three\ Kings.chordpro --transpose=+7 --generate=HTML > We\ Three\ Kings - A (E capo 7).html`
+`chordpro We\ Three\ Kings.chordpro --transpose=+7 --generate=HTML > temp.html`
 
 Then generate the PDF using Chrome as above.
 
