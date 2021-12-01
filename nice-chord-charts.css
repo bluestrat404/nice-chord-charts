@@ -57,7 +57,7 @@ body {
 	font-size: .9em;
 }
 
-.comment { font-size: .8em; }
+.comment { font-size: .8em; text-transform:uppercase; }
 
 .songline {
 	line-height: .9em;

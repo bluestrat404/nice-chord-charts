@@ -49,4 +49,7 @@ To transpose We Three Kings from E to A, for a capo on 7, we could use:
 Then generate the PDF using Chrome as above.
 
 ## Troubleshooting
-- *The formatting isn't showing up.* Double check that whatever you have in the "print" stylesheet path in the chordpro.json config file does indeed pull up the nice-chord-charts.css when you paste it into a browser.
+### The formatting isn't showing up.
+Double check that whatever you have in the "print" stylesheet path in the chordpro.json config file does indeed pull up the nice-chord-charts.css when you paste it into a browser.
+
+Also be sure to use ChordPro's directives for start of verse {sov}, end of verse {eov}, start of chorus {soc}, and end of chorus {eoc}, everywhere you want a box, as this is what ChordPro uses to output the relevant divs in HTML.
