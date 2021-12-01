@@ -1,0 +1,66 @@
+/* LAYOUT */
+@page {
+	margin: .3in;
+}
+
+/* round rects containing song parts */
+.verse, .chorus {
+	border: 1px solid black;
+	border-radius: 8px;
+	padding: .4em;
+	margin: .2em 0 .2em 0;
+}
+
+.chorus { background-color: #ededed; }
+
+.song {
+     column-count: 2;
+     column-gap: .5em;
+     column-fill: auto;
+     
+     /* the above works in Chrome and Firefox on its own, but the below workaround is
+		needed for wkhtmltopdf, found here: https://github.com/wkhtmltopdf/wkhtmltopdf/issues/1872 */
+            /* You *must* define a fixed height which is
+               large enough to fit the whole content,
+               otherwise the layout is unpredictable. */
+           /*  height: 80em; */
+            /* Width and count aren't respected, but you
+               have to give at least some dummy value (??). */
+/*             -webkit-columns: 0 0; */
+            /* This is the strange way to define the number of columns:
+               50% = 2 columns, 33% = 3 columns 25% = 4 columns */
+/*             width: 50%;  */
+	/* it looks pretty bad this way too. It doesn't respect break-inside: avoid; */
+ }
+
+div.verse, div.chorus {
+	break-inside: avoid;
+}
+
+/* FONT SETTINGS */
+body {
+	font-family: "Verdana";
+}
+
+.title { 
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-bottom: .5em;
+	column-span: all; /* <-- Title shouldn't break into two columns */
+}
+
+.comment, .chords {
+	font-weight: bold; 
+}
+
+.chords, .lyrics {
+	font-size: .9em;
+}
+
+.comment { font-size: .8em; }
+
+.songline {
+	line-height: .9em;
+}
+
+
