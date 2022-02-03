@@ -49,6 +49,12 @@ body {
 	column-span: all; /* <-- Title shouldn't break into two columns */
 }
 
+.subtitle { 
+	font-size: .9em;
+	margin-bottom: .5em;
+	column-span: all; /* <-- Title shouldn't break into two columns */
+}
+
 .comment, .chords {
 	font-weight: bold; 
 }
