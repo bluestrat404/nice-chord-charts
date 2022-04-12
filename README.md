@@ -45,8 +45,8 @@ And then it cleans up:
 
 `rm tempnicepdf.html`
 
-## Bonus Tip: Transposing
-ChordPro can also generate transposed charts (e.g., for different capo positions):
+## Transposing
+ChordPro can also generate transposed charts:
 
 > ### transpose
 > 
@@ -54,13 +54,11 @@ ChordPro can also generate transposed charts (e.g., for different capo positions
 > 
 > Transposes all songs by N semi-tones. Note that N may be specified as +N to transpose upward, using sharps, or as -N to transpose downward, using flats.
 
-To transpose We Three Kings from E to A, for a capo on 7, we could use:
+To transpose We Three Kings from E to A, for example (maybe you want to capo 7), put your transpose value in as the third variable, like so:
 
-`chordpro We\ Three\ Kings.chordpro --transpose=+7 --generate=HTML > temp.html`
+`cpnicepdf nameofyour.chordpro nameofdesired.pdf +7`
 
-Then generate the PDF using Chrome as above.
-
-*Currently, the function cpnicepdf() doesn't support transposing directly, but this may be added in the future. We may also add a flag to serve the use case where there will be two guitars who should be capoed in different places, and then we'd generate the two desired pdfs at once. Fancy!*
+*We may one day add a flag to serve the use case where there will be two guitars who should be capoed in different places, and then we'd generate the two desired pdfs at once. Fancy!*
 
 ## Troubleshooting
 ### The formatting isn't showing up. The PDF is ugly!
