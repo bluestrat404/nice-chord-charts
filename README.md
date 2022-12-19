@@ -13,6 +13,7 @@
 - A sample ChordPro file of We Three Kings. ChordPro files can also be downloaded from SongSelect.
 - A CSS file to render nice HTML output for printing.
 - A chordpro.json config file to help render nice HTML output for printing.
+- A bass.json config file to use to output just the bass notes from inversions (e.g., print B if the chord is E/B)
 
 ## Setup
 
@@ -29,9 +30,11 @@ Same as for MacOS, but you'll need to change your cpnicepdf() function to correc
 ## How do I use this?
 Like so:
 
-`cpnicepdf nameofyour.chordpro nameofdesired.pdf`
+`cpnicepdf nameofyour.chordpro`
 
-This will generate the HTML using ChordPro, and then generate the PDF using Chrome.
+This will generate the HTML using ChordPro, and then generate the PDF using Chrome. If you don't supply a second parameter, the name of your created file in the above case would be "nameofyour.pdf". If you'd like to specify your own name, you can supply that like this:
+
+`cpnicepdf nameofyour.chordpro nameofdesired.pdf`
 
 It runs this:
 
@@ -59,6 +62,17 @@ To transpose We Three Kings from E to A, for example (maybe you want to capo 7),
 `cpnicepdf nameofyour.chordpro nameofdesired.pdf +7`
 
 *We may one day add a flag to serve the use case where there will be two guitars who should be capoed in different places, and then we'd generate the two desired pdfs at once. Fancy!*
+
+## Bass Charts
+Most of the time, bass players will want to know the full chords of the song, but sometimes they may want just the bass notes, especially if the chords specify a lot of inversions. In that case, you can give the optional fourth parameter:
+
+`cpnicepdf nameofyour.chordpro nameofdesired.pdf +0 bass`
+
+Is this a kludgy way of doing it? Yes! It should be done better. But it works! It'll run this before generating the PDF:
+
+`chordpro nameofyour.chordpro --transpose=+0 --congfig=bass --generate=HTML > tempnicepdf.html`
+
+So, instead of "bass", you would put in the full path to bass.json. You can also put in whatever transpose value, but you must put something there because this is done in such a kludgy way! The good news is +0 works fine!
 
 ## Troubleshooting
 ### The formatting isn't showing up. The PDF is ugly!

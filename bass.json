@@ -1,0 +1,13 @@
+{
+  // Settings for the parser/preprocessor.
+  // Replaces all instrument-specific chords with conditional directives
+  "parser" : {
+    "preprocess" : {
+      "songline" : [
+        { "pattern" : "\\[\\w+/(\\w+)\\]",
+          "replace" : "[$1]"
+        }
+      ],
+    },
+  },
+}

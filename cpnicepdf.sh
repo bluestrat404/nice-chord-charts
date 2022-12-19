@@ -7,14 +7,27 @@
 #	2: PDF Output Name (with ".pdf")
 #	3 (optional): Steps to tell ChordPro to transpose (e.g., +2 transposes up two half steps using sharps. Use - (minus) to tell ChordPro to print flats)
 cpnicepdf() {
-         if [ -z ${3+x} ]
-         then
-                 chordpro $1 --generate=HTML > tempnicepdf.html
-         else
-                 chordpro $1 --transpose=$3 --generate=HTML > tempnicepdf.html
-         fi
+	transpose=0
+	mode=""
 
-         /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=$2 tempnicepdf.html
+	if [ -z ${2+x} ]
+	then
+		pdffilename="${1/chordpro/pdf}"
+	else
+		pdffilename=$2
+	fi
+	if [ ! -z ${3+x} ]
+	then
+		transpose=$3
+	fi
+	if [ ! -z ${4+x} ]
+	then
+		mode=$4
+	fi
 
-         rm tempnicepdf.html
+	echo "chordpro $1 --transpose=$transpose --config=$mode --generate=HTML > tempnicepdf.html"	
+
+	chordpro $1 --transpose=$transpose --config=$mode --generate=HTML > tempnicepdf.html	
+	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=$pdffilename tempnicepdf.html
+	rm tempnicepdf.html
 }
