@@ -22,12 +22,12 @@ cpnicepdf() {
 	fi
 	if [ ! -z ${4+x} ]
 	then
-		mode=$4
+		mode=" --config=$4"
 	fi
 
-	echo "chordpro $1 --transpose=$transpose --config=$mode --generate=HTML > tempnicepdf.html"	
+	echo "chordpro $1 --transpose=$transpose $mode --generate=HTML > tempnicepdf.html"	
 
-	chordpro $1 --transpose=$transpose --config=$mode --generate=HTML > tempnicepdf.html	
+	chordpro $1 --transpose=$transpose $mode --generate=HTML > tempnicepdf.html	
 	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --headless --disable-gpu --print-to-pdf-no-header --print-to-pdf=$pdffilename tempnicepdf.html
 	rm tempnicepdf.html
 }
