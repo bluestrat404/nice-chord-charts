@@ -3,7 +3,8 @@
  
 ## Why?
 1. Many chord charts are ugly or difficult to use. This makes nice ones. :)
-2. Sometimes you want to change chords and arrangements from what you're able to download. Using this workflow saves you from having to edit PDFs directly or recreate chord charts from scratch.
+2. Using this generator, almost all songs can fit on one page, legibly!
+3. Sometimes you want to change chords and arrangements from what you're able to download. Using this workflow saves you from having to edit PDFs directly or recreate chord charts from scratch.
  
 ## Dependencies
 - ChordPro, found at [https://www.chordpro.org](https://www.chordpro.org).
